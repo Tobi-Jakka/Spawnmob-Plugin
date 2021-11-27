@@ -34,9 +34,56 @@ public class CommandHandler implements CommandExecutor {
 
 
     //public SpawnMob() {}
-
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+
+        if (sender instanceof Player) {
+            Player p = (Player) sender;
+
+            if (args.length == 1) {
+                p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7Syntax: /spawnmob <entity>"));
+                return false;
+            }
+
+            Location location = p.getLocation();
+            if (args.length == 4){
+                Player targetPlayer = getServer().getPlayer(args[2]);
+                location = targetPlayer.getLocation();
+            }
+
+            int quantityMobs = 1;
+            if (args.length == 3){
+                if(Integer.parseInt(args[2]) > 8){
+                    quantityMobs = 8; //if the the quantityOfMonsters is > 8 then just spawn 8. (Change to config later)
+                }
+            }
+
+
+
+            switch (args[0].toUpperCase()) {
+                case "ZOMBIE":
+                    SpawnHandler.spawnMonster(p,location,quantityMobs,EntityType.ZOMBIE);
+                    break;
+
+                case "SKELETON":
+                    SpawnHandler.spawnMonster(p,location,quantityMobs,EntityType.SKELETON);
+                    break;
+
+                case "ENDERMAN":
+                    SpawnHandler.spawnMonster(p,location,quantityMobs,EntityType.ENDERMAN);
+                    break;
+
+                default:
+                    return false;
+            }
+        }
+
+        return true;
+    }
+
+
+
+    public boolean onCommand1(CommandSender sender, Command cmd, String label, String[] args) {
         if (sender instanceof Player)
         {
             Player p = (Player) sender;
