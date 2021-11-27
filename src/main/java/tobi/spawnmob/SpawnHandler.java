@@ -5,9 +5,6 @@ import org.bukkit.Location;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 
-import static java.lang.Integer.parseInt;
-import static org.bukkit.Bukkit.getServer;
-
 public class SpawnHandler {
 
 
@@ -21,7 +18,4 @@ public class SpawnHandler {
         player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&cSpawned &b" + quantityMobs + " &cZombie on &b" + location + "&c."));
 
     }
-//loc.getWorld().spawnEntity(loc,EntityType.ZOMBIE);
-
-
 }
