@@ -1,0 +1,13 @@
+name: Spawnmob
+version: '${project.version}'
+main: tobi.spawnmob.Spawnmob
+api-version: 1.17
+authors: [ Tobi3944 ]
+description: A simple spawnmob plugin
+website: https://skylyfe.net
+
+commands:
+  spawnmob:
+    description: Your description
+    usage: /<command> <entity>
+    permission: spawnmob.use
