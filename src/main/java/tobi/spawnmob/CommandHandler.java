@@ -40,11 +40,7 @@ public class CommandHandler implements CommandExecutor {
         if (sender instanceof Player) {
             Player p = (Player) sender;
 
-            if (args == null) {
-                return false;
-            }
-
-            if (args.length == 1) {
+            if (args.length <= 1) {
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7Syntax: /spawnmob <entity>"));
                 return false;
             }
