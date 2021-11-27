@@ -1,9 +1,9 @@
-name: Spawnmob
+name: SpawnMob
 version: '${project.version}'
-main: tobi.spawnmob.Spawnmob
+main: net.skylyfe.spawnmob.spawnmob.Main
 api-version: 1.17
-authors: [ Tobi3944 ]
-description: A simple spawnmob plugin
+authors: [ jakka12, amarstang ]
+description: Advanced /spawnmob command.
 website: https://skylyfe.net
 
 commands:
