@@ -53,6 +53,7 @@ public class CommandHandler implements CommandExecutor {
                         if (args.length == 1) {
                             loc.getWorld().spawnEntity(loc, EntityType.ZOMBIE);
                             p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&cSpawned &b1 &cZombie."));
+                            
                         }
                         else if (args.length == 2) {
                             if (!isNumeric(args[1])) return false;
