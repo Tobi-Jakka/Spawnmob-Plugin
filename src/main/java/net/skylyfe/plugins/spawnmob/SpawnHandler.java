@@ -1,4 +1,4 @@
-package tobi.spawnmob;
+package net.skylyfe.plugins.spawnmob;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Location;

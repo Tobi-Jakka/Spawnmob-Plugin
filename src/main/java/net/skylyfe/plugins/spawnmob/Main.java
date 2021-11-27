@@ -1,4 +1,4 @@
-package net.skylyfe.spawnmob.spawnmob;
+package net.skylyfe.plugins.spawnmob;
 
 import org.bukkit.plugin.java.JavaPlugin;
 

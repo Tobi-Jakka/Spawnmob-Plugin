@@ -1,6 +1,6 @@
 name: SpawnMob
 version: '${project.version}'
-main: net.skylyfe.spawnmob.spawnmob.Main
+main: net.skylyfe.plugins.spawnmob.Main
 api-version: 1.17
 authors: [ jakka12, amarstang ]
 description: Advanced /spawnmob command.

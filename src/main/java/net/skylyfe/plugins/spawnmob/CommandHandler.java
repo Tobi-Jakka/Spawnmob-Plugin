@@ -1,4 +1,4 @@
-package tobi.spawnmob;
+package net.skylyfe.plugins.spawnmob;
 
 import org.bukkit.Location;
 import org.bukkit.command.Command;
@@ -71,4 +71,3 @@ public class CommandHandler implements CommandExecutor {
         return true;
     }
 }
-
