@@ -42,17 +42,17 @@ public class CommandHandler implements CommandExecutor {
 
             if (args.length <= 1) {
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7Syntax: /spawnmob <entity>"));
-                return false;
+                return true;
             }
 
             Location location = p.getLocation();
-            if (args.length == 4){
+            if (args.length == 3){
                 Player targetPlayer = getServer().getPlayer(args[2]);
                 location = targetPlayer.getLocation();
             }
 
             int quantityMobs = 1;
-            if (args.length == 3){
+            if (args.length == 2){
                 if(Integer.parseInt(args[2]) > 8){
                     quantityMobs = 8; //if the the quantityOfMonsters is > 8 then just spawn 8. (Change to config later)
                 }
