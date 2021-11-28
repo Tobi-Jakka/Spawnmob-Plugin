@@ -5,8 +5,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.ChatColor;
-import org.bukkit.block.Block;
-import org.bukkit.event.block.BlockBreakEvent;
 
 public class CommandHandler implements CommandExecutor {
 
@@ -21,22 +19,14 @@ public class CommandHandler implements CommandExecutor {
 
             if (sender instanceof Player) {
                 Player player = (Player) sender;
-                Block block = player.getLocation().getBlock();
-                BlockBreakEvent blockEvent = (BlockBreakEvent) block;
 
                 if (!player.hasPermission("spawnmob.use")) {
                     player.sendMessage(ChatColor.translateAlternateColorCodes('&',  "&cYou don't have access to that command"));
                     return true; //msg handled in CommandHandler
                 }
 
-                if (CooldownHandler.CooldownChecker(player) == true) {
+                if (CooldownHandler.CooldownChecker(player)) {
                     return true; //msg handled in CooldownHandler
-                }
-
-                EventHandler.onBreakBlock(blockEvent);
-                if(EventHandler.blockEvent == false) {
-                    player.sendMessage(ChatColor.translateAlternateColorCodes('&',  "&cYou don't permission to spawn (t)here!"));
-                    return true; //msg handled in CommandHandler
                 }
 
                 if(!SpawnHandler.spawnMonster(player, args)) {

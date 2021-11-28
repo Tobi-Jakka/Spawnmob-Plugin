@@ -14,13 +14,11 @@ public class SpawnHandler {
 
         String monster = args[0];
         EntityType EntityMonster = EntityType.valueOf(monster.toUpperCase());
-        Location targetLocation;
+        Location targetLocation = player.getLocation();
         int quantity = 1;
 
         if (args.length >= 3) {
             targetLocation = getServer().getPlayer(args[2]).getLocation();
-        } else {
-            targetLocation = player.getLocation();
         }
 
         if (args.length >= 2) {
