@@ -5,19 +5,35 @@ import org.bukkit.Location;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 
+import static org.bukkit.Bukkit.getServer;
+
 public class SpawnHandler {
 
-    /**
-     * Takes the parametes and spawn a monster at some a location 'i' times
-     * @param player
-     * @param location
-     * @param quantityMobs
-     * @param monster
-     */
-    public static void spawnMonster(Player player,Location location, int quantityMobs, EntityType monster){
-        for (int i = 0; i < quantityMobs; i++) {
-            location.getWorld().spawnEntity(location, monster);
+    public static boolean spawnMonster(Player player, String[] args){
+        if (args.length < 1) return true;
+
+        String monster = args[0];
+        EntityType EntityMonster = EntityType.valueOf(monster.toUpperCase());
+        Location targetLocation;
+        int quantity = 1;
+
+        if (args.length >= 3) {
+            targetLocation = getServer().getPlayer(args[2]).getLocation();
+        } else {
+            targetLocation = player.getLocation();
         }
-        player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&cSpawned &b" + quantityMobs + " &cZombie on &b" + location + "&c."));
+
+        if (args.length >= 2) {
+            quantity = Integer.parseInt(args[2]);
+            if (quantity < 1 || quantity > 4) {
+                quantity = 1;
+            }
+        }
+
+        for (int i = 0; i < quantity; i++) {
+            targetLocation.getWorld().spawnEntity(targetLocation, EntityMonster);
+        }
+        player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&cSpawned &b" + quantity + " &cZombie on &b" + targetLocation + "&c."));
+        return true;
     }
 }

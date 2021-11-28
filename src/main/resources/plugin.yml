@@ -10,4 +10,3 @@ commands:
   spawnmob:
     description: Your description
     usage: /<command> <entity>
-    permission: spawnmob.use

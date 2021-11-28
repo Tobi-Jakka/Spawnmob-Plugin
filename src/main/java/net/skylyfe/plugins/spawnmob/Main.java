@@ -4,12 +4,18 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Main extends JavaPlugin {
 
+    CommandHandler commandHandler = new CommandHandler();
+
     @Override
     public void onEnable() {
         // Plugin startup logic
-        
-        // Register our command "kit" (set an instance of your command class as executor)
-        this.getCommand("spawnmob").setExecutor(new CommandHandler());
+
+        //Load commands
+        for (String command : commandHandler.cmds)
+        {
+            getCommand(command).setExecutor(commandHandler);
+            //getCommand(command).setTabCompleter(autoComplete);
+        }
 
     }
 
