@@ -14,6 +14,7 @@ public class SpawnHandler {
 
         String monster = args[0];
         EntityType EntityMonster = EntityType.valueOf(monster.toUpperCase());
+
         Location targetLocation = player.getLocation();
         int quantity = 1;
 
@@ -22,7 +23,12 @@ public class SpawnHandler {
         }
 
         if (args.length >= 2) {
-            quantity = Integer.parseInt(args[2]);
+            try {
+            quantity = Integer.parseInt(args[1]);
+            } catch (Exception e) {
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&',  "&cInvalid amount"));
+                return true;
+            }
             if (quantity < 1 || quantity > 4) {
                 quantity = 1;
             }
