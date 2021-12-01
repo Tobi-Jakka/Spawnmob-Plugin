@@ -2,9 +2,6 @@ package net.skylyfe.plugins.spawnmob;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public final class Main extends JavaPlugin {
 
     CommandHandler commandHandler = new CommandHandler();
