@@ -2,9 +2,13 @@ package net.skylyfe.plugins.spawnmob;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public final class Main extends JavaPlugin {
 
     CommandHandler commandHandler = new CommandHandler();
+    AutoCompleter autoComplete = new AutoCompleter();
 
     @Override
     public void onEnable() {
@@ -14,7 +18,7 @@ public final class Main extends JavaPlugin {
         for (String command : commandHandler.cmds)
         {
             getCommand(command).setExecutor(commandHandler);
-            //getCommand(command).setTabCompleter(autoComplete);
+            getCommand(command).setTabCompleter(autoComplete);
         }
 
     }

@@ -25,10 +25,6 @@ public class CommandHandler implements CommandExecutor {
                     return true; //msg handled in CommandHandler
                 }
 
-                if (CooldownHandler.CooldownChecker(player)) {
-                    return true; //msg handled in CooldownHandler
-                }
-
                 if(!SpawnHandler.spawnMonster(player, args)) {
                     player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7Failed to spawn a mob"));
                     return true; //msg handled in CommandHandler
